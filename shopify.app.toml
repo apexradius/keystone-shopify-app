@@ -1,0 +1,28 @@
+name = "Apex MCP Bridge"
+client_id = "a9a5a9324f5d3a2b886c0ed6265d1ad6"
+application_url = "https://keystone.apexradius.ai"
+embedded = true
+
+[access_scopes]
+scopes = "read_customers,write_customers,read_orders,write_orders,read_products"
+
+[auth]
+redirect_urls = ["https://keystone.apexradius.ai/api/v1/platform/shopify/callback"]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = ["customers/create"]
+  uri = "https://keystone.apexradius.ai/api/v1/platform/shopify/webhooks/customers-create"
+
+  [[webhooks.subscriptions]]
+  topics = ["orders/create"]
+  uri = "https://keystone.apexradius.ai/api/v1/platform/shopify/webhooks/orders-create"
+
+  [[webhooks.subscriptions]]
+  topics = ["app/uninstalled"]
+  uri = "https://keystone.apexradius.ai/api/v1/platform/shopify/webhooks/app-uninstalled"
+
+[pos]
+embedded = false
