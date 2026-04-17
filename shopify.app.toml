@@ -12,13 +12,9 @@ redirect_urls = ["https://keystone.apexradius.ai/api/v1/platform/shopify/callbac
 [webhooks]
 api_version = "2024-10"
 
-  [[webhooks.subscriptions]]
-  topics = ["customers/create"]
-  uri = "https://keystone.apexradius.ai/api/v1/platform/shopify/webhooks/customers-create"
-
-  [[webhooks.subscriptions]]
-  topics = ["orders/create"]
-  uri = "https://keystone.apexradius.ai/api/v1/platform/shopify/webhooks/orders-create"
+  # customers/create + orders/create removed — require Protected Customer Data approval
+  # (Partner Dashboard → API access → Protected customer data → request access).
+  # Re-add once approved.
 
   [[webhooks.subscriptions]]
   topics = ["app/uninstalled"]
